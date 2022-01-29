@@ -8,3 +8,6 @@ Need:
 - Link nodes using edge
 - Display graph to terminal
 - Do the other complicated stuff
+- End goal is to have something like bongoDB but better and less bad
+- - cli and args
+- - maybe some way to programmatically interface with it
