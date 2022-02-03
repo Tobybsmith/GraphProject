@@ -17,8 +17,8 @@ class Graph
     void addEdge(Edge);
     void display();
     //abstract part of class:
-    //virtual void listAllPaths();
-    //virtual void listOnePath();
+    //virtual void listAllPaths() = 0;
+    //virtual void listOnePath() = 0;
     bool queryedge(Edge);
     bool querynode(int);//should change to any type
 };
