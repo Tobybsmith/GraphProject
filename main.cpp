@@ -13,6 +13,8 @@ int main()
     //6. List the path from one starting node
     //6.1 Path ends when a node has no edges or a node loops back to a node already
         //covered in the path.
+    //7. Come up with application ideas
+        //database, social media app, something like that.
     Graph g = Graph();
     Node *n1 = new Node(1);
     Node *n2 = new Node(2);
