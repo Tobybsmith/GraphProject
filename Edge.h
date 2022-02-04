@@ -2,6 +2,7 @@
 #define EDGE_H
 #include "Node.h"
 
+class Graph;
 class Node;
 class Edge
 {
@@ -11,7 +12,7 @@ class Edge
     bool directed;
     public:
     Edge();
-    Edge(Node*, Node*, bool);
+    Edge(Node*, Node*, bool, Graph*);
     bool operator==(Edge&);
     //-->
     //redefine == for edges

@@ -3,23 +3,26 @@
 #include "Node.h"
 #include "Edge.h"
 #include <iostream>
+#include <vector>
 
+class Node;
+class Edge;
 class Graph
 {
     private:
     bool directed;
-    vector<Node> nodeList;
-    vector<Edge> edgeList;
+    std::vector<Node*> nodeList;
+    std::vector<Edge*> edgeList;
     public:
     //addnode, display, listallpaths, listonepath, queryedge, querynode
     Graph();
-    void addNode(Node);
-    void addEdge(Edge);
+    void addNode(Node*);
+    void addEdge(Edge*);
     void display();
     //abstract part of class:
     //virtual void listAllPaths() = 0;
     //virtual void listOnePath() = 0;
-    bool queryedge(Edge);
+    bool queryedge(Edge*);
     bool querynode(int);//should change to any type
 };
 #endif

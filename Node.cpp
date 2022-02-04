@@ -9,12 +9,12 @@ Node::Node()
     counter++;
 }
 
-Node::Node(int v)
+Node::Node(Graph* g, int v)
 {
     value = v;
     index = counter;
     counter++;
-    
+    g->addNode(this);
 }
 
 bool Node::ifValueExists(int v)

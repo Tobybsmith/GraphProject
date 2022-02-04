@@ -5,17 +5,17 @@ Graph::Graph()
 {
 
 }
-void Graph::addNode(Node n)
+void Graph::addNode(Node *n)
 {
     nodeList.push_back(n);
 }
 
-void Graph::addEdge(Edge e)
+void Graph::addEdge(Edge *e)
 {
     edgeList.push_back(e);
 }
 
-bool Graph::queryedge(Edge e)
+bool Graph::queryedge(Edge *e)
 {
     for(int i = 0; i < edgeList.size(); i++)
     {
@@ -33,25 +33,25 @@ void Graph::display()
     for(int i = 0; i < nodeList.size(); i++)
     {
         string c = (i == nodeList.size() - 1 ? "\0" : ", "); 
-        cout << nodeList.at(i).getValue() << c;
+        cout << nodeList.at(i)->getValue() << c;
     }
     cout << "}" << endl;
-    cout<<"Edges: ";
+    cout<<"Edges: {";
     for(int i=0; i<edgeList.size();i++)
     {
         string str = i == edgeList.size() - 1 ? ")" : "), ";
         // (head, tail), (head, tail), ...
-        cout << "(" << edgeList.at(i).getHead()->getValue() << ","
-             << edgeList.at(i).getTail()->getValue()<<str;
+        cout << "(" << edgeList.at(i)->getHead()->getValue() << ","
+             << edgeList.at(i)->getTail()->getValue()<<str;
     }
-    cout << endl;
+    cout << "}" << endl;
 }
 
 bool Graph::querynode(int v)//change to any type value
 {
     for(int i = 0; i < nodeList.size(); i++)
     {
-        if(nodeList.at(i).getValue() == v)
+        if(nodeList.at(i)->getValue() == v)
         {
             return true;
         }

@@ -1,10 +1,12 @@
 #ifndef NODE_H
 #define NODE_H
 #include "Edge.h"
+#include "Graph.h"
 #include <vector>
 
 using namespace std;
 
+class Graph;
 class Edge;
 class Node
 {
@@ -16,7 +18,7 @@ class Node
     vector<Edge*> edgeList;
     public:
     Node();
-    Node(int);
+    Node(Graph*, int);
     bool ifValueExists(int);
     void setValue(int);
     int getValue();
