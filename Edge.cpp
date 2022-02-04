@@ -5,12 +5,12 @@ Edge::Edge()
     //nothing
 }
 
-Edge::Edge(Node* a, Node* b, bool c)
+Edge::Edge(Node* a, Node* b, bool c, Graph* g)
 {
     head = a;
     tail = b;
     directed = c;
-    
+    g->addEdge(*this);
 }
 
 bool Edge::operator==(Edge& other)
