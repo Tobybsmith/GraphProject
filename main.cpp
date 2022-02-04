@@ -1,4 +1,4 @@
-#include "Graph.h"
+#include "UndirectedGraph.h"
 
 using namespace std;
 
@@ -15,15 +15,15 @@ int main()
         //covered in the path.
     //7. Come up with application ideas
         //database, social media app, something like that.
-    Graph *g = new Graph();
+    UndirectedGraph *g = new UndirectedGraph();
     Node *n1 = new Node(g,1);
     Node *n2 = new Node(g, 2);
     Node *n3 = new Node(g, 1000);
     Node *n4 = new Node(g, -100);
     Edge e1 = Edge(n1, n2, false, g);
-    Edge e2 = Edge(n3, n4, true, g);
+    //Edge e2 = Edge(n3, n4, true, g);
     Edge e3 = Edge(n2, n3, false, g);
+    g->listOnePath(n1);
     g->display();
-
     return 0;
 }

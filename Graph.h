@@ -15,13 +15,13 @@ class Graph
     std::vector<Edge*> edgeList;
     public:
     //addnode, display, listallpaths, listonepath, queryedge, querynode
-    Graph();
+    Graph(bool);
     void addNode(Node*);
     void addEdge(Edge*);
     void display();
     //abstract part of class:
-    //virtual void listAllPaths() = 0;
-    //virtual void listOnePath() = 0;
+    virtual void listAllPaths() = 0;
+    virtual void listOnePath(Node*) = 0;
     bool queryedge(Edge*);
     bool querynode(int);//should change to any type
 };

@@ -1,9 +1,11 @@
 #include "Graph.h"
 #include <iostream>
 
-Graph::Graph()
+Graph::Graph(bool b)
 {
-
+    //true for directed
+    //false for undirected
+    directed = b;
 }
 void Graph::addNode(Node *n)
 {
