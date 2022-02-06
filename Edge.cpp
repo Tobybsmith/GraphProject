@@ -11,6 +11,7 @@ Edge::Edge(Node* a, Node* b, bool c, Graph* g)
     tail = b;
     directed = c;
     g->addEdge(this);
+    a->addEdge(this);
 }
 
 bool Edge::operator==(Edge& other)

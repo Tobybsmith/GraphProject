@@ -21,9 +21,11 @@ int main()
     Node *n3 = new Node(g, 1000);
     Node *n4 = new Node(g, -100);
     Edge e1 = Edge(n1, n2, false, g);
-    //Edge e2 = Edge(n3, n4, true, g);
+    Edge e2 = Edge(n1, n4, true, g);
     Edge e3 = Edge(n2, n3, false, g);
+    //cout << n1->getEdgeList().size() << " " << n2->getEdgeList().size() << " " << n3->getEdgeList().size() << endl;
     g->listOnePath(n1);
+    //cout << n2->getEdgeList().at(0)->getTail()->getValue() << endl;
     g->display();
     return 0;
 }

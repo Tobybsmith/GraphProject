@@ -15,6 +15,7 @@ class Edge
     Edge(Node*, Node*, bool, Graph*);
     bool operator==(Edge&);
     //-->
+    //tail -> head
     //redefine == for edges
     //two edges are equal if same head, tail, and directionality
     Node* getHead();

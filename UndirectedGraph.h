@@ -8,7 +8,7 @@ class UndirectedGraph : public Graph
     UndirectedGraph();
     void listOnePath(Node*);
     void listAllPaths();
-    bool helper(Node*, vector<Node*>, vector<Node*>);
+    bool helper(Node*, vector<Node*>&, vector<Node*>&);
 };
 
 #endif
