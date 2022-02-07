@@ -5,6 +5,15 @@ UndirectedGraph::UndirectedGraph() : Graph(true)
     //do nothing
 }
 
+//
+void UndirectedGraph::caller(Node *n)
+{
+    //vector<Node*> blacklist;
+    for(int i = 0; i < 1; i++)
+    {
+        listOnePath(n);
+    }
+}
 void UndirectedGraph::listOnePath(Node *n)
 {
     vector<Node*> visited;
@@ -26,14 +35,15 @@ void UndirectedGraph::listAllPaths()
     cout << "hehe" << endl;
 }
 
-//https://www.geeksforgeeks.org/print-path-root-given-node-binary-tree/
-//keep working on this
+//this kinda works only sometimes.
 bool UndirectedGraph::helper(Node *current, vector<Node*> &past, vector<Node*> &blacklist)
 {
+
     if(!current)
     {
         return false;
     }
+
     past.push_back(current);
     
     for(int i = 0; i < blacklist.size(); i++)
@@ -51,8 +61,9 @@ bool UndirectedGraph::helper(Node *current, vector<Node*> &past, vector<Node*> &
         }
     for(int i = 0; i < current->getEdgeList().size(); i++)
     {
-        //cout << current->getEdgeList().size() << " ";
+        //cout << current->getEdgeList().size() << " " << endl;
         //why getTail() instead of getHead()? idk lolz
+        //tail -> head
         if(helper(current->getEdgeList().at(i)->getTail(), past, blacklist))
         {
             //cout << "WE MASSDE IT" << endl;

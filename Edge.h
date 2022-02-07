@@ -1,6 +1,7 @@
 #ifndef EDGE_H
 #define EDGE_H
 #include "Node.h"
+#include <vector>
 
 class Graph;
 class Node;

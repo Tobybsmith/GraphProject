@@ -3,6 +3,7 @@
 #include "Edge.h"
 #include "Graph.h"
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -12,16 +13,16 @@ class Node
 {
     private:
     //change this int later to any val
-    int value;
+    string value;
     static int counter;
     int index;
     vector<Edge*> edgeList;
     public:
     Node();
-    Node(Graph*, int);
-    bool ifValueExists(int);
-    void setValue(int);
-    int getValue();
+    Node(Graph*, string);
+    bool ifValueExists(string);
+    void setValue(string);
+    string getValue();
     void addEdge(Edge*);
     vector<Edge*> getEdgeList();
     int getIndex();

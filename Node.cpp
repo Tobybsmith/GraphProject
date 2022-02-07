@@ -1,15 +1,17 @@
 #include "Node.h"
 
+using namespace std;
+
 int Node::counter = 0;
 
 Node::Node()
 {
-    value = 0;
+    value = "";
     index = counter;
     counter++;
 }
 
-Node::Node(Graph* g, int v)
+Node::Node(Graph* g, string v)
 {
     value = v;
     index = counter;
@@ -17,17 +19,17 @@ Node::Node(Graph* g, int v)
     g->addNode(this);
 }
 
-bool Node::ifValueExists(int v)
+bool Node::ifValueExists(string v)
 {
     return v == value;
 }
 
-int Node::getValue()
+string Node::getValue()
 {
     return value;
 }
 
-void Node::setValue(int v)
+void Node::setValue(string v)
 {
     value = v;
 }

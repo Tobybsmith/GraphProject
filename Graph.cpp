@@ -49,7 +49,7 @@ void Graph::display()
     cout << "}" << endl;
 }
 
-bool Graph::querynode(int v)//change to any type value
+bool Graph::querynode(std::string v)//change to any type value
 {
     for(int i = 0; i < nodeList.size(); i++)
     {

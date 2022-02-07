@@ -4,6 +4,7 @@
 #include "Edge.h"
 #include <iostream>
 #include <vector>
+#include <string>
 
 class Node;
 class Edge;
@@ -23,6 +24,6 @@ class Graph
     virtual void listAllPaths() = 0;
     virtual void listOnePath(Node*) = 0;
     bool queryedge(Edge*);
-    bool querynode(int);//should change to any type
+    bool querynode(std::string);//should change to any type
 };
 #endif
