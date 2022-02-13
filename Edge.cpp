@@ -5,10 +5,11 @@ Edge::Edge()
     //nothing
 }
 
+//tail to head
 Edge::Edge(Node* a, Node* b, bool c, Graph* g)
 {
-    head = a;
-    tail = b;
+    head = b;
+    tail = a;
     directed = c;
     g->addEdge(this);
     a->addEdge(this);

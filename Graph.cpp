@@ -43,7 +43,7 @@ void Graph::display()
     {
         string str = i == edgeList.size() - 1 ? ")" : "), ";
         // (head, tail), (head, tail), ...
-        cout << "(" << edgeList.at(i)->getHead()->getValue() << ","
+        cout << "(" << edgeList.at(i)->getHead()->getValue() << " -> "
              << edgeList.at(i)->getTail()->getValue()<<str;
     }
     cout << "}" << endl;
@@ -59,4 +59,9 @@ bool Graph::querynode(std::string v)//change to any type value
         }
     }
     return false;
+}
+
+vector<Node*> Graph::getNodeList()
+{
+    return nodeList;
 }

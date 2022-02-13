@@ -1,16 +1,16 @@
-#ifndef UNDIRECTEDGRAPH_H
-#define UNDIRECTEDGRAPH_H
+#ifndef DIRECTEDGRAPH_H
+#define DIRECTEDGRAPH_H
 #include "Graph.h"
 #include <vector>
 
-class UndirectedGraph : public Graph
+class DirectedGraph : public Graph
 {
     public:
-    UndirectedGraph();
+    DirectedGraph();
     void listOnePath(Node*);
     void listAllPaths();
     bool helper(Node*, vector<Node*>&, vector<Node*>&);
-    void caller(Node *n);
+    void displayPathOfNode(Node *n);
 };
 
 #endif
