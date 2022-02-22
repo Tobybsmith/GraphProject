@@ -23,6 +23,7 @@ class Node
     Node();
     Node(Graph*, string);
     Node(Graph*, Member);
+    Node(Member);
     bool ifValueExists(string);
     bool ifValueExists(Member);
     bool operator==(Member&);

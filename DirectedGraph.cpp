@@ -6,6 +6,12 @@ DirectedGraph::DirectedGraph() : Graph(true)
     //do nothing
 }
 
+DirectedGraph::DirectedGraph(std::string n) : Graph(true)
+{
+    //do nothing
+    name = n;
+}
+
 //
 void DirectedGraph::displayPathOfNode(Node *n)
 {

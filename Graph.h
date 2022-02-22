@@ -14,6 +14,8 @@ class Graph
     bool directed;
     std::vector<Node*> nodeList;
     std::vector<Edge*> edgeList;
+    protected:
+    std::string name;
     public:
     //addnode, display, listallpaths, listonepath, queryedge, querynode
     Graph(bool);
@@ -26,5 +28,7 @@ class Graph
     bool queryedge(Edge*);
     bool querynode(std::string);//should change to any type
     std::vector<Node*> getNodeList();
+    Node* getNodeFromName(std::string, std::string);
+    std::string getName();
 };
 #endif

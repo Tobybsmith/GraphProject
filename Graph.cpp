@@ -65,3 +65,20 @@ vector<Node*> Graph::getNodeList()
 {
     return nodeList;
 }
+
+std::string Graph::getName()
+{
+    return name;
+}
+
+Node* Graph::getNodeFromName(std::string f, std::string l)
+{
+    for(int i = 0; i < nodeList.size(); i++)
+    {
+        if(nodeList.at(i)->getMember().getFirstname() == f && nodeList.at(i)->getMember().getLastName() == l)
+        {
+            return nodeList.at(i);
+        }
+    }
+    return nullptr;
+}

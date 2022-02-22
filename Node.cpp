@@ -29,6 +29,15 @@ Node::Node(Graph* g, Member m)
     g->addNode(this);
 }
 
+Node::Node(Member m)
+{
+    member = m;
+    index = counter;
+    counter++;
+    value = member.getFirstname() + " " + member.getLastName() + " (" + member.getDOB()+")";
+    //g->addNode(this);
+}
+
 bool Node::ifValueExists(string v)
 {
     return v == value;

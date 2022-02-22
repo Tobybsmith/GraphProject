@@ -7,6 +7,7 @@ class DirectedGraph : public Graph
 {
     public:
     DirectedGraph();
+    DirectedGraph(std::string);
     void listOnePath(Node*);
     void listAllPaths();
     bool helper(Node*, vector<Node*>&, vector<Node*>&);
