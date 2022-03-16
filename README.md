@@ -7,10 +7,10 @@ Need:
 - ~~Create graph, and node~~
 - ~~Link nodes using edge~~
 - ~~Display graph to terminal~~
-- Do the other complicated stuff
+- ~~Do the other complicated stuff~~
 
 
 #GOALS
 - DirectedGraph
-- HEllo World!
+- HEllo World! ???
 -undirected
