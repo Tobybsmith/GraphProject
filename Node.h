@@ -25,7 +25,7 @@ class Node
     Node(Graph*, Member);
     bool ifValueExists(string);
     bool ifValueExists(Member);
-    bool operator==(Member&);
+    bool operator==(Member&); // operator overloading
     void setValue(string);
     void setValue(Member);
     string getValue();

@@ -29,6 +29,7 @@ bool Graph::queryedge(Edge *e)
     return false;
 }
 
+//make the egdes backwards
 void Graph::display()
 {
     cout << "Nodes: {";

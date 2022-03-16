@@ -14,7 +14,7 @@ class Edge
     public:
     Edge();
     Edge(Node*, Node*, bool, Graph*);
-    bool operator==(Edge&);
+    bool operator==(Edge&); //operator overlaoding
     //-->
     //tail -> head
     //redefine == for edges
