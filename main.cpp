@@ -10,14 +10,7 @@ int main(int argc, char** argv)
     //dont need an index file, can use fstream.good() <- true if exists and false if doesn't
     if(stricmp(argv[1], "-i") == 0)
     { 
-        //program is in interactive mode
-        //some basic commands, create tree, add node, add node to another node (parent)
-        //C, R, P, S
-        //C for create, creates a new family tree with a name and no nodes
-        //R creates the root node, must be used like R <firstname> <lastname> <DOB>
-        //P creates a parent node, must be used like P <firstname> <lastname> <DOB> <indexofchild>
-            //should rework to be name + DOB or index of child
-        //S saves the graph to a file.
+        cout << "Welcome to the interactive family tree manager, type H for help." << endl;
         DirectedGraph *g;
         while(true)
         {
@@ -31,18 +24,13 @@ int main(int argc, char** argv)
             //works great
             if(type == 'C')
             {
-                //create file and break;
-                //need to think about file format
+                //have to add a base node to this tree in creation
                 string name;
                 std::cout << "\nEnter Tree Name > ";
                 getline(cin, name);
                 cout << name;
                 ofstream of(name);
                 g = new DirectedGraph(name);
-            }
-            else if(type == 'R')
-            {
-                //this adds the root node to graph g
                 cout << "Enter First Name, Last Name, and Date Of Bith (dd/mm/yyyy) > ";
                 string f;
                 string n;
@@ -56,11 +44,6 @@ int main(int argc, char** argv)
                 
                 //constructs a node, adds to g, and creates the underlying member all in one :)
                 g->addNode(new Node(Member(dob, f, n)));
-                //now must add the node to the file
-                ofstream in;
-                in.open(g->getName(), ios::app);
-                //file will look like FIRST LAST DOB INDEX CHILD or R to mark root node
-                in << f << " " << n << " " << dob << " 0 R" << endl;
             }
             else if(type == 'N')
             {
@@ -91,12 +74,6 @@ int main(int argc, char** argv)
                 }
                 g->addNode(curr);
                 new Edge(g->getNodeFromName(ef, en), curr,  false, g);
-                
-                //now must add the node to the file
-                ofstream in;
-                in.open(g->getName(), ios::app);
-                //file will look like FIRST LAST DOB INDEX CHILDINDEX or R to mark root node
-                in << f << " " << n << " " << dob << " "<< curr->getIndex() << " " << g->getNodeFromName(ef, en)->getIndex() << endl;
             }
             else if(type == 'D')
             {
@@ -106,14 +83,13 @@ int main(int argc, char** argv)
             else if (type == 'H')
             {
                 cout << "Help:" << endl;
-                cout << "Use C to create a new family tree named." << endl 
-                    << "\tthe default name is tree<n> where n is the nth default named tree."<< endl;
-                cout << "Use R to create a root in the family tree." << endl
-                    << "\tR can only be used once, as there can only be one root on a tree. R must be used after a tree has been created." << endl;
+                cout << "Use C to create a new family and add a starting member to it" << endl ;
                 cout << "Use N to create a new family member on the tree." << endl 
-                    <<"\tthe child of this member must be specified to add this member" << endl;
-                cout << "Use D to display the tree" << endl;
-                cout << "use Q to quit the program" << endl;
+                    <<" The child of this member must be specified to add this member." << endl;
+                cout << "Use D to display the tree." << endl;
+                cout << "Use P to display the path from one node to another if that path exists." << endl;
+                cout << "Use R to remove a node from the tree (will recursively remove all parents of that node)." << endl;
+                cout << "use Q to quit the program." << endl;
             }
             
             else if(type == 'Q')
