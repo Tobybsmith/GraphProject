@@ -19,11 +19,12 @@ class Node
     static int counter;
     int index;
     vector<Edge*> edgeList;
+    bool isRoot = false;
     public:
     Node();
     Node(Graph*, string);
-    Node(Graph*, Member);
-    Node(Member);
+    Node(Graph*, Member, bool);
+    Node(Member, bool);
     bool ifValueExists(string);
     bool ifValueExists(Member);
     bool operator==(Member&);
@@ -34,6 +35,7 @@ class Node
     void addEdge(Edge*);
     vector<Edge*> getEdgeList();
     int getIndex();
+    bool getIsRoot();
 };
 
 #endif

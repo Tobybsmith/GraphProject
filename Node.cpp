@@ -20,20 +20,22 @@ Node::Node(Graph* g, string v)
     g->addNode(this);
 }
 
-Node::Node(Graph* g, Member m)
+Node::Node(Graph* g, Member m, bool r)
 {
     member = m;
     index = counter;
     counter++;
+    isRoot = r;
     value = member.getFirstname() + " " + member.getLastName() + " (" + member.getDOB()+")";
     g->addNode(this);
 }
 
-Node::Node(Member m)
+Node::Node(Member m, bool r)
 {
     member = m;
     index = counter;
     counter++;
+    isRoot = r;
     value = member.getFirstname() + " " + member.getLastName() + " (" + member.getDOB()+")";
     //g->addNode(this);
 }
@@ -91,4 +93,9 @@ vector<Edge*> Node::getEdgeList()
 int Node::getIndex()
 {
     return index;
+}
+
+bool Node::getIsRoot()
+{
+    return isRoot;
 }
