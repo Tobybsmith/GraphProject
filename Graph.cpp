@@ -61,6 +61,18 @@ bool Graph::querynode(std::string v)//change to any type value
     return false;
 }
 
+bool Graph::querynode(Member m)//change to any type value
+{
+    for(int i = 0; i < nodeList.size(); i++)
+    {
+        if(nodeList.at(i)->getMember() == m)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 vector<Node*> Graph::getNodeList()
 {
     return nodeList;

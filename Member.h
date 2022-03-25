@@ -24,6 +24,7 @@ class Member
     string getFirstname();
     string getLastName();
     string getMarriageDate();
+    bool operator==(const Member&);
 };
 
 

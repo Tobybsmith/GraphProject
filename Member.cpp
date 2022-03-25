@@ -40,3 +40,12 @@ string Member::getMarriageDate()
 {
     return marriageDate;
 }
+
+bool Member::operator==(const Member &other)
+{
+    if(this->firstName == other.firstName && this->lastName == other.lastName && this->DOB == other.DOB && this->marriageDate == other.marriageDate)
+    {
+        return true;
+    }
+    return false;
+}

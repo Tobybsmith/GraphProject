@@ -97,6 +97,39 @@ int main(int argc, char** argv)
                 //now works as expected
                 g->displayPathOfNode(g->getNodeFromName(ef, en));
             }
+            else if (type == 'E')
+            {
+                cout << "Enter first and last name of first member > ";
+                string ef1;
+                string en1;
+                cin >> ef1;
+                cin >> en1;
+                cin.ignore();
+                //connects the current node and the specified child node.
+                if(g->getNodeFromName(ef1, en1) == nullptr)
+                {
+                    cout << "That member does not exist" << endl;
+                    continue;
+                }
+
+                cout << "Enter first and last name of first member > ";
+                string ef2;
+                string en2;
+                cin >> ef2;
+                cin >> en2;
+                cin.ignore();
+                //connects the current node and the specified child node.
+                if(g->getNodeFromName(ef2, en2) == nullptr)
+                {
+                    cout << "That member does not exist" << endl;
+                    continue;
+                }
+                //write a name, name to edge helper to do this.
+                if(true)
+                {
+                    cout << "Pog" << endl;
+                }
+            }
             else if (type == 'H')
             {
                 cout << "Help:" << endl;

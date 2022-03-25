@@ -27,6 +27,7 @@ class Graph
     virtual void listOnePath(Node*) = 0;
     bool queryedge(Edge*);
     bool querynode(std::string);//should change to any type
+    bool querynode(Member);//should change to any type
     std::vector<Node*> getNodeList();
     Node* getNodeFromName(std::string, std::string);
     std::string getName();
