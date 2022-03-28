@@ -10,6 +10,7 @@ int main(int argc, char** argv)
     //run with -i for interative mode, -d for project testing, nothing for a sample project
     if(stricmp(argv[1], "-i") == 0)
     { 
+        //come up with a better name lol
         cout << "Welcome to the interactive family tree manager, type H for help." << endl;
         DirectedGraph *g;
         while(true)
@@ -30,7 +31,7 @@ int main(int argc, char** argv)
                 getline(cin, name);
                 cout << name;
                 g = new DirectedGraph(name);
-                cout << "Enter First Name, Last Name, and Date Of Bith (dd/mm/yyyy) > ";
+                cout << "\nEnter First Name, Last Name, and Date Of Bith (dd/mm/yyyy) > ";
                 string f;
                 string n;
                 string dob;
@@ -43,6 +44,7 @@ int main(int argc, char** argv)
                 
                 //constructs a node, adds to g, and creates the underlying member all in one :)
                 g->addNode(new Node(Member(dob, f, n), true));
+                //have option to create muliple graphs in one session and display them individually
             }
             else if(type == 'N')
             {
@@ -58,7 +60,7 @@ int main(int argc, char** argv)
                 cin.ignore();
                 Node *curr  = new Node(Member(dob, f, n), false);
                 
-
+                checkn:
                 cout << "Enter First and Last name of this person's child > ";
                 string ef;
                 string en;
@@ -68,8 +70,8 @@ int main(int argc, char** argv)
                 //connects the current node and the specified child node.
                 if(g->getNodeFromName(ef, en) == nullptr)
                 {
-                    cout << "That member does not exist" << endl;
-                    continue;
+                    cout << "That member does not exist." << endl;
+                    goto checkn;
                 }
                 g->addNode(curr);
                 new Edge(g->getNodeFromName(ef, en), curr,  false, g);
@@ -82,6 +84,7 @@ int main(int argc, char** argv)
             else if(type == 'P')
             {
                 //display graph as a whole
+                checkp:
                 cout << "Enter first and last name of member > ";
                 string ef;
                 string en;
@@ -91,14 +94,15 @@ int main(int argc, char** argv)
                 //connects the current node and the specified child node.
                 if(g->getNodeFromName(ef, en) == nullptr)
                 {
-                    cout << "That member does not exist" << endl;
-                    continue;
+                    cout << "That member does not exist." << endl;
+                    goto checkp;
                 }
                 //now works as expected
                 g->displayPathOfNode(g->getNodeFromName(ef, en));
             }
             else if (type == 'E')
             {
+                check1E:
                 cout << "Enter first and last name of first member > ";
                 string ef1;
                 string en1;
@@ -108,11 +112,12 @@ int main(int argc, char** argv)
                 //connects the current node and the specified child node.
                 if(g->getNodeFromName(ef1, en1) == nullptr)
                 {
-                    cout << "That member does not exist" << endl;
-                    continue;
+                    cout << "That member does not exist." << endl;
+                    goto check1E;
                 }
 
-                cout << "Enter first and last name of first member > ";
+                check2E:
+                cout << "Enter first and last name of second member > ";
                 string ef2;
                 string en2;
                 cin >> ef2;
@@ -121,13 +126,43 @@ int main(int argc, char** argv)
                 //connects the current node and the specified child node.
                 if(g->getNodeFromName(ef2, en2) == nullptr)
                 {
-                    cout << "That member does not exist" << endl;
-                    continue;
+                    cout << "That member does not exist." << endl;
+                    goto check2E;
                 }
                 //write a name, name to edge helper to do this.
-                if(true)
+                
+                if(g->queryedge(ef1, en1, ef2, en2))
                 {
-                    cout << "Pog" << endl;
+                    cout << "Relation Exists." << endl;
+                }
+                else
+                {
+                    cout << "Relation does not exist." << endl;
+                }
+            }
+            else if (type == 'L')
+            {
+                check1L:
+                cout << "Enter first and last name of first member > ";
+                string ef1;
+                string en1;
+                cin >> ef1;
+                cin >> en1;
+                cin.ignore();
+                //connects the current node and the specified child node.
+                if(g->getNodeFromName(ef1, en1) == nullptr)
+                {
+                    cout << "That member does not exist." << endl;
+                    goto check1L;
+                }
+                cout << "en1: " << en1;
+                if(g->querynode(ef1, en1))
+                {
+                    cout << "Node Exists." << endl;
+                }
+                else 
+                {
+                    cout<<"Node does not exits.";
                 }
             }
             else if (type == 'H')
@@ -135,12 +170,11 @@ int main(int argc, char** argv)
                 cout << "Help:" << endl;
                 cout << "Use C to create a new family and add a starting member to it" << endl ;
                 cout << "Use N to create a new family member on the tree." << endl 
-                    <<" The child of this member must be specified to add this member." << endl;
+                    <<"The child of this member must be specified to add this member." << endl;
                 cout << "Use D to display the tree." << endl;
                 cout << "Use P to display the path from one node to another if that path exists." << endl;
                 cout << "Use E to determine whether or not an edge exists." << endl;
-                //L??? lmao
-                cout << "Use L to determine whether or not a family member exists" << endl;
+                cout << "Use L to determine whether or not a family member exists." << endl;
                 cout << "use Q to quit the program." << endl;
             }
             

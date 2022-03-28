@@ -56,6 +56,7 @@ bool DirectedGraph::helper(Node *current, vector<Node*> &past, vector<Node*> &bl
     if(helper(current->getEdgeList().at(0)->getHead(), past, blacklist))
     {
         past.push_back(current);
+        return true;
     }
-    return true;
+    return false;
 }

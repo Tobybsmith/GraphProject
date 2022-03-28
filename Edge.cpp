@@ -9,11 +9,11 @@ Edge::Edge()
 //literally no idea how this works lmao
 Edge::Edge(Node* a, Node* b, bool c, Graph* g)
 {
-    tail = a;
-    head = b;
+    tail = b;
+    head = a;
     directed = c;
     g->addEdge(this);
-    a->addEdge(this);
+    b->addEdge(this);
 }
 
 bool Edge::operator==(Edge& other)

@@ -8,6 +8,7 @@
 
 class Node;
 class Edge;
+class Member;
 class Graph
 {
     private:
@@ -23,11 +24,12 @@ class Graph
     void addEdge(Edge*);
     void display();
     //abstract part of class:
-    virtual void listAllPaths() = 0;
     virtual void listOnePath(Node*) = 0;
     bool queryedge(Edge*);
     bool querynode(std::string);//should change to any type
-    bool querynode(Member);//should change to any type
+    bool querynode(Member*);//should change to any type
+    bool querynode(std::string, std::string);//should change to any type
+    bool queryedge(std::string, std::string, std::string, std::string);//should change to any type
     std::vector<Node*> getNodeList();
     Node* getNodeFromName(std::string, std::string);
     std::string getName();

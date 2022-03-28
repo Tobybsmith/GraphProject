@@ -14,6 +14,7 @@ class Edge
     public:
     Edge();
     Edge(Node*, Node*, bool, Graph*);
+    //operator overloading
     bool operator==(Edge&);
     //-->
     //tail -> head
