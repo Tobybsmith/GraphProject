@@ -11,6 +11,8 @@ class DirectedGraph : public Graph
     void listOnePath(Node*);
     bool helper(Node*, vector<Node*>&, vector<Node*>&);
     void displayPathOfNode(Node *n);
+    void betweenTwoNodes(Node*, Node*);
+    bool helper2(Node*, Node*, vector<Node*>&);
 };
 
 #endif

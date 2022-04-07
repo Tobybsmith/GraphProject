@@ -60,3 +60,51 @@ bool DirectedGraph::helper(Node *current, vector<Node*> &past, vector<Node*> &bl
     }
     return false;
 }
+
+void DirectedGraph::betweenTwoNodes(Node *current, Node *target)
+{
+    string str;
+    vector<Node*> list;
+    if(helper2(current, target, list))
+    {
+        //reverse the algo.
+        reverse(list.begin(), list.end());
+        for(int i = 0; i < list.size(); i++)
+        {
+            str = i == list.size()-1 ? "" : "->";
+            cout << list.at(i)->getValue() << str;
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << "Those two members are not related directly" << endl;
+    }
+}
+
+bool DirectedGraph::helper2(Node *current, Node *target, vector<Node*> &list)
+{
+    //null check
+    if(!current)
+    {
+        return false;
+    }
+    //win condition is if current == target
+    if(current == target)
+    {
+        list.push_back(current);
+        return true;
+    }
+    //lose condition
+    if(current->getIsRoot())
+    {
+        return false;
+    }
+    //recuse condition
+    if(helper2(current->getEdgeList().at(0)->getHead(), target, list))
+    {
+        list.push_back(current);
+        return true;
+    }
+    return false;
+}
