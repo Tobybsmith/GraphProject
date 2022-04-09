@@ -10,8 +10,15 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+    std::cout << "============================" << endl;
+    std::cout << "      Family Tree Maker     " << endl;
+    std::cout << "    COEN244 Final Project   " << endl;
+    std::cout << "         Created By:        " << endl;
+    std::cout << " Toby Smith + Alexis Benier " << endl;
+    std::cout << "============================" << endl;
+    std::cout << endl;
     //run with -i for interative mode, -d for project testing, nothing for a sample project
-    if(stricmp(argv[1], "-i") == 0)
+    if(true)
     { 
         //come up with a better name lol
         std::cout << "Welcome to the interactive family tree manager, enter H for help." << endl;
@@ -80,6 +87,11 @@ int main(int argc, char** argv)
                 if(g->getNodeFromName(ef, en) == nullptr)
                 {
                     std::cout << "That member does not exist." << endl;
+                    goto checkn;
+                }
+                if(g->getNodeFromName(ef, en)->getIsRoot())
+                {
+                    std::cout << "You cannot add a child to the root node." << endl;
                     goto checkn;
                 }
                 g->addNode(curr);
@@ -226,11 +238,7 @@ int main(int argc, char** argv)
             }
         }
     }
-    else if(stricmp(argv[1], "-d") == 0 && stricmp(argv[2], "demo1") == 0)
-    {
-        //this here can have the black box testing for the project demo
-        std::cout << "demo1 mode" << endl;
-    }
+    //just in case we ever need this it is here
     else
     {
         DirectedGraph *tobyTree = new DirectedGraph();
