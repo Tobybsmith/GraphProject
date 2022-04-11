@@ -8,17 +8,21 @@ using namespace std;
 //great thing about this program is that everything is a string so there can't
 //really be invalid input, just birthdays
 
+
+//SET TO TRUE IF YOU WANT TO SEE THE DEFAULT MODE
+bool _DEFAULT = false;
+
 int main(int argc, char** argv)
 {
-    std::cout << "============================" << endl;
-    std::cout << "      Family Tree Maker     " << endl;
-    std::cout << "    COEN244 Final Project   " << endl;
+    std::cout << "=============================" << endl;
+    std::cout << "       Family Tree Maker    " << endl;
+    std::cout << "     COEN244 Final Project  " << endl;
     std::cout << "         Created By:        " << endl;
-    std::cout << " Toby Smith + Alexis Benier " << endl;
-    std::cout << "============================" << endl;
+    std::cout << " Toby Smith + Alexis Bernier " << endl;
+    std::cout << "=============================" << endl;
     std::cout << endl;
     //run with -i for interative mode, -d for project testing, nothing for a sample project
-    if(true)
+    if(!_DEFAULT)
     { 
         //come up with a better name lol
         std::cout << "Welcome to the interactive family tree manager, enter H for help." << endl;
@@ -87,11 +91,6 @@ int main(int argc, char** argv)
                 if(g->getNodeFromName(ef, en) == nullptr)
                 {
                     std::cout << "That member does not exist." << endl;
-                    goto checkn;
-                }
-                if(g->getNodeFromName(ef, en)->getIsRoot())
-                {
-                    std::cout << "You cannot add a child to the root node." << endl;
                     goto checkn;
                 }
                 g->addNode(curr);
@@ -224,8 +223,8 @@ int main(int argc, char** argv)
                 std::cout << "Use N to create a new family member on the tree." << endl 
                     <<"The child of this member must be specified to add this member." << endl;
                 std::cout << "Use D to display the tree." << endl;
-                std::cout << "Use P to display the path from one node to another if that path exists." << endl;
-                std::cout << "Use E to determine whether or not an edge exists." << endl;
+                std::cout << "Use P to display the path from one node to another if that path exists. (First member must be above the tree compared to the second member)" << endl;
+                std::cout << "Use E to determine whether or not an edge exists. (First member must be below the tree compared to second member)" << endl;
                 std::cout << "Use L to determine whether or not a family member exists." << endl;
                 std::cout << "Use T to get the path between two members, if it exists" << endl;
                 std::cout << "use Q to quit the program." << endl;
